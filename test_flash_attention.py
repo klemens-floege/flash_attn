@@ -17,7 +17,7 @@ else:
 
 
 # Create dummy tensors
-B, H, S, D = 64, 128, 4096, 128  # Batch, Heads, Sequence, Head Dim
+B, H, S, D = 64, 128, 2048, 128  # Batch, Heads, Sequence, Head Dim
 
 Q = torch.randn(B, H, S, D, device='cuda', dtype=torch.float32)
 K = torch.randn(B, H, S, D, device='cuda', dtype=torch.float32)
@@ -45,6 +45,9 @@ flash_v2_output = flash_attn_func(Q, K, V, dropout_p=0.0, causal=False)
 torch.cuda.synchronize()
 flash_v2_time = time.time() - start"""
 
+# Print Results
+print(f"Custom FlashAttention CUDA Time: {custom_time:.8f}s")
+print(f"PyTorch Attention Time: {torch_time:.8f}s")
 
 
 # ✅ Fix: Ensure correct tensor strides and shape extraction
@@ -66,8 +69,6 @@ print("custom", custom_output[0])
 print("torch", torch_attn[0])
 torch.testing.assert_close(custom_output, torch_attn, rtol=1e-4, atol=1e-5)
 
-# Print Results
-print(f"Custom FlashAttention CUDA Time: {custom_time:.8f}s")
-print(f"PyTorch Attention Time: {torch_time:.8f}s")
+
 
 #torch.testing.assert_close(flash_v2_output, attn, rtol=1e-4, atol=1e-5)

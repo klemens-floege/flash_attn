@@ -1,7 +1,7 @@
 #!/bin/bash +x
 
 #SBATCH --account westai0009                                                    # specify the account name, otherwise the job will not run
-#SBATCH --time 0:10:00                                                            # pecify the running time; on develbooster it is limited to 2 hours
+#SBATCH --time 0:01:00                                                            # pecify the running time; on develbooster it is limited to 2 hours
 #SBATCH --cpus-per-task=24                                                         # do not change
 #SBATCH --ntasks-per-node 1                                                        # number of tasks per node; each node has 4 GPUs
 #SBATCH --nodes 1 # the number of nodes; if you request 4 nodes you get 16 GPUs
