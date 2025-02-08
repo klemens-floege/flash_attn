@@ -1,0 +1,15 @@
+
+
+venv/
+sc_venv_template/venv/
+.venv/
+
+build/
+dist/
+*.egg-info/
+
+outputs/
+build/
+cuda_add_extension.egg-info/
+
+flash_attention_cuda.egg-info/

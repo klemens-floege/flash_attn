@@ -1,0 +1,26 @@
+## Custom CUDA Flash Attention Kernel Implementation
+
+This project is a custom implementation of the Flash Attention kernel, starting with a naive multi-head implementation in CUDA and progressively increasing complexity using various optimization techniques.
+
+Implementation Stages
+
+- Naive Flash Attention – A basic multi-head attention implementation in CUDA.
+
+- Coalesced Flash Attention – Improves memory coalescing for better performance.
+
+- SMCB Flash Attention – Implements Shared Memory Coalesced Buffering (SMCB) to enhance efficiency.
+
+- 1D Block Tiling – Uses 1D block tiling for better memory access patterns.
+
+- 2D Block Tiling – Extends tiling to 2D for further optimizations.
+
+- Vectorized Shared Memory (VecSMEM) Optimization – Leverages vectorized shared memory operations.
+
+- Auto-Tuning – Incorporates auto-tuning for parameter optimization.
+
+- Warp-Tiling Optimization – Implements warp-level tiling for increased parallelism.
+
+## Objective
+
+This structured approach systematically refines the Flash Attention kernel, integrating efficient memory access, tiling strategies, and auto-tuning for performance improvements.
+
